@@ -123,7 +123,7 @@
 		(sound-buffer (make-alien
 			       short
 			       (truncate bytes-to-write *channels/sample*))))
-   (print bytes-written)
+	   (print bytes-written)
 	   (loop for idx below samples-to-write do
 		(setf (deref sound-buffer (* idx 2))
 		      (sin-audio-sample volume 440 sample-idx))
