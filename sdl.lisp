@@ -24,13 +24,30 @@
   (ms unsigned-int))
 
 ;;; SDL Audio
+
+#||
+typedef struct SDL_AudioSpec
+{
+    int freq;
+    SDL_AudioFormat format;
+    Uint8 channels;
+    Uint8 silence;
+    Uint16 samples;
+    Uint16 padding;
+    Uint32 size;
+    SDL_AudioCallback callback;
+    void *userdata;
+} SDL_AudioSpec;
+||#
+
 (define-alien-type nil
     (struct sdl-audio-spec
 	    (freq int)
-	    (format int)
+	    (format unsigned-short)
 	    (channels unsigned-char)
 	    (silence unsigned-char)
 	    (samples unsigned-short)
+	    (padding unsigned-short)
 	    (size unsigned-int)
 	    (callback system-area-pointer)
 	    (user-data system-area-pointer)))
